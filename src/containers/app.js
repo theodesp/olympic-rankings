@@ -28,11 +28,11 @@ export default class App extends React.Component {
         const rankingsMap = new Map();
 
         rankingsData.forEach((entry, idx) => {
-            if(rankingsMap.has(entry.country)) {
-                rankingsMap.get(entry.country).update(entry.medal);
-            } else {
+            if (!rankingsMap.has(entry.country)) {
                 rankingsMap.set(entry.country, new MetalsCounter());
             }
+
+            rankingsMap.get(entry.country).update(entry.medal);
         });
 
         return rankingsMap;
@@ -41,9 +41,10 @@ export default class App extends React.Component {
     render() {
         return (
             <div>
-                <h1>Beijing 2008 Olympic Rankings</h1>
-                <button>Load rankings</button>
-                <section>
+                <div className="valign-wrapper">
+                    <h1 className="valign">Beijing 2008 Olympic Rankings</h1>
+                </div>
+                <section className="container">
                     { this.state.rankings && <RankingsTable rankings={this.state.rankings} /> }
                 </section>
             </div>

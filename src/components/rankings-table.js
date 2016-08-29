@@ -4,9 +4,9 @@ export const RankingsTable = (rankings) => {
     const sorted = new Map([...rankings.rankings.entries()].sort((a,b) => {
         return a[1].totals < b[1].totals 
     }));
-    
+
     return (
-        <table>
+        <table className="striped centered">
             <thead>
                 <tr>
                     <th>Country</th>

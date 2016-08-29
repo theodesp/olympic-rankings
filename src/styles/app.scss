@@ -1,3 +1,19 @@
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+div .valign-wrapper  {
+  background-image: url("../images/olimpiada.jpg");
+  height: 200px;
+  background-attachment: fixed;
+}
+
 h1 {
   color: blue;
+  margin: 0 auto;
+}
+
+table {
+  margin-bottom: 50px;
 }

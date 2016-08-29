@@ -23,17 +23,24 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.jsx?$/,
+      {
+        test: /\.jsx?$/,
         loader: "babel",
         include: path.join(__dirname, "src")
       },
-      { test: /\.scss?$/,
+      {
+        test: /\.scss?$/,
         loader: "style!css!sass",
-        include: path.join(__dirname, "src", "styles") },
-      { test: /\.png$/,
-        loader: "file" },
-      { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        loader: "file"}
+        include: path.join(__dirname, "src", "styles")
+      },
+      {
+        test: /\.jpe?g$|\.gif$|\.png$/i,
+        loader: "file-loader?name=/img/[name].[ext]"
+      },
+      {
+        test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+        loader: "file"
+      }
     ]
   }
 };

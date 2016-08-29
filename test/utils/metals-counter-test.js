@@ -34,3 +34,16 @@ test("MetalsCounter shows total metals count", t => {
 
     t.true(counter.totals === 6);
 });
+
+test("MetalsCounter updates total metals count", t => {
+    let counter = new MetalsCounter();
+    counter.update("Bronze");
+    counter.update("Bronze");
+    counter.update("Silver");
+    counter.update("Gold");
+
+    t.true(counter.totals === 4);
+    t.true(counter.goldCount === 1);
+    t.true(counter.silverCount === 1);
+    t.true(counter.bronzeCount === 2);
+});
