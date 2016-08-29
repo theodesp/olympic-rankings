@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config ./webpack.prod.config.js --progress --colors",
-    "start": "cross-env NODE_ENV=production node ./app.js",
+    "start": "node ./app.js",
     "dev": "npm run build:dev && npm run start:dev",
     "build:dev": "cross-env NODE_ENV=development webpack --config ./webpack.dev.config.js --progress --colors",
     "start:dev": "cross-env NODE_ENV=development node ./app.js",
