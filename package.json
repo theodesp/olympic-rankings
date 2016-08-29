@@ -6,6 +6,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config ./webpack.prod.config.js --progress --colors",
     "start": "node ./app.js",
+    "test": "cross-env NODE_ENV=production ava --fail-fast --verbose --require babel-register",
     "clean": "rimraf public"
   },
   "repository": {
@@ -27,8 +28,8 @@
   ],
   "dependencies": {
     "express": "^4.13.4",
-    "react": "^0.14.8",
-    "react-dom": "^0.14.8",
+    "react": "15.3.1",
+    "react-dom": "15.3.1",
     "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
@@ -48,6 +49,17 @@
     "webpack": "^1.12.14",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0",
-    "cross-env": "2.0.0"
+    "cross-env": "2.0.0",
+    "ava": "0.16.0",
+    "chai": "3.5.0",
+    "sinon": "1.17.5",
+    "sinon-chai": "2.8.0",
+    "enzyme": "2.4.1",
+    "react-addons-test-utils": "15.3.1"
+  },
+  "ava": {
+    "require": [
+      "./test/helpers/setup-browser.js"
+    ]
   }
 }
