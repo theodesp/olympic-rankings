@@ -1,38 +1,36 @@
 import React from "react";
 
 export const RankingsTable = (rankings) => {
-    var rows = [];
-
-    rankings.rankings.forEach((ranking, country) => {
-        rows.push(<RankingsRow country={country}
-                               metalsCount={ranking.metalsCount}
-                               key={country}/>);
-    });
-
+    const sorted = new Map([...rankings.rankings.entries()].sort((a,b) => {
+        return a[1].totals < b[1].totals 
+    }));
+    
     return (
         <table>
             <thead>
-            <tr>
-                <th>Country</th>
-                <th>Total Metals Won</th>
-                <th>Total Gold</th>
-                <th>Total Silver</th>
-                <th>Total Bronze</th>
-            </tr>
+                <tr>
+                    <th>Country</th>
+                    <th>Total Metals Won</th>
+                    <th>Total Gold</th>
+                    <th>Total Silver</th>
+                    <th>Total Bronze</th>
+                </tr>
             </thead>
-            <tbody>{rows}</tbody>
+            <tbody>
+                {
+                    Array.from(sorted).map(([key, value]) => {
+                        return (
+                            <tr key={key}>
+                                <td>{key}</td>
+                                <td>{value.totals}</td>
+                                <td>{value.goldCount}</td>
+                                <td>{value.silverCount}</td>
+                                <td>{value.bronzeCount}</td>
+                            </tr>
+                        )
+                    })
+                }
+            </tbody>
         </table>
     );
-};
-
-const RankingsRow = (country, metalsCount) => {
-    return (
-        <tr>
-            <td>{country}</td>
-            <td>{metalsCount.totals}</td>
-            <td>{metalsCount.goldCount}</td>
-            <td>{metalsCount.silverCount}</td>
-            <td>{metalsCount.bronzeCount}</td>
-        </tr>
-    )
 };
