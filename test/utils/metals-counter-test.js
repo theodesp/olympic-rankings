@@ -1,16 +1,16 @@
 import test from "ava";
-import {MetalsCounter} from "../../src/utils/metals-counter";
+import {MedalsCounter} from "../../src/utils/medals-counter";
 
-test("MetalsCounter constructor initial value is 0 gold, 0 silver and 0 bronze", t => {
-    let counter = new MetalsCounter();
+test("MedalsCounter constructor initial value is 0 gold, 0 silver and 0 bronze", t => {
+    let counter = new MedalsCounter();
 
     t.true(counter.goldCount === 0);
     t.true(counter.silverCount === 0);
     t.true(counter.bronzeCount === 0);
 });
 
-test("MetalsCounter increments gold, silver or bronze counters respectively", t => {
-    let counter = new MetalsCounter();
+test("MedalsCounter increments gold, silver or bronze counters respectively", t => {
+    let counter = new MedalsCounter();
     counter.incGold();
     counter.incGold();
     counter.incBronze();
@@ -23,8 +23,8 @@ test("MetalsCounter increments gold, silver or bronze counters respectively", t 
     t.true(counter.bronzeCount === 1);
 });
 
-test("MetalsCounter shows total metals count", t => {
-    let counter = new MetalsCounter();
+test("MedalsCounter shows total metals count", t => {
+    let counter = new MedalsCounter();
     counter.incGold();
     counter.incGold();
     counter.incBronze();
@@ -35,8 +35,8 @@ test("MetalsCounter shows total metals count", t => {
     t.true(counter.totals === 6);
 });
 
-test("MetalsCounter updates total metals count", t => {
-    let counter = new MetalsCounter();
+test("MedalsCounter updates total metals count", t => {
+    let counter = new MedalsCounter();
     counter.update("Bronze");
     counter.update("Bronze");
     counter.update("Silver");

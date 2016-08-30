@@ -2,7 +2,7 @@ import React from "react";
 
 export const RankingsTable = (rankings) => {
     const sorted = new Map([...rankings.rankings.entries()].sort((a,b) => {
-        return a[1].totals < b[1].totals 
+        return a[1].totals < b[1].totals ? 1 : a[1].totals > b[1].totals ? -1 : 0
     }));
 
     return (
@@ -10,7 +10,7 @@ export const RankingsTable = (rankings) => {
             <thead>
                 <tr>
                     <th>Country</th>
-                    <th>Total Metals Won</th>
+                    <th>Total Medals Won</th>
                     <th>Total Gold</th>
                     <th>Total Silver</th>
                     <th>Total Bronze</th>

@@ -3,7 +3,7 @@ import {Counter} from "./counter";
 /**
  * Helper class that hold the metals counters for a country
  */
-export class MetalsCounter {
+export class MedalsCounter {
     constructor() {
         this._goldCount = new Counter();
         this._silverCount = new Counter();

@@ -2,7 +2,7 @@ import "babel-polyfill";
 import React from "react";
 import {RankingsTable} from "../components/rankings-table";
 import {Ranking} from "../models/ranking";
-import {MetalsCounter} from "../utils/metals-counter";
+import {MedalsCounter} from "../utils/medals-counter";
 
 export default class App extends React.Component {
     constructor(props) {
@@ -29,7 +29,7 @@ export default class App extends React.Component {
 
         rankingsData.forEach((entry, idx) => {
             if (!rankingsMap.has(entry.country)) {
-                rankingsMap.set(entry.country, new MetalsCounter());
+                rankingsMap.set(entry.country, new MedalsCounter());
             }
 
             rankingsMap.get(entry.country).update(entry.medal);
